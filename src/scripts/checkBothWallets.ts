@@ -42,8 +42,17 @@ const checkBothWallets = async () => {
     console.log('🔍 CHECKING BOTH ADDRESSES\n');
     console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n');
 
-    const ADDRESS_1 = '0x4fbBe5599c06e846D2742014c9eB04A8a3d1DE8C'; // From .env
-    const ADDRESS_2 = '0xd62531bc536bff72394fc5ef715525575787e809'; // From profile
+    const [address1Arg, address2Arg] = process.argv.slice(2);
+    const ADDRESS_1 = address1Arg || PROXY_WALLET;
+    const ADDRESS_2 = address2Arg || '';
+
+    if (!ADDRESS_2) {
+        console.log('Missing second address.\n');
+        console.log(
+            'Usage: npx ts-node src/scripts/checkBothWallets.ts <address_1> <address_2>\n'
+        );
+        return;
+    }
 
     try {
         // 1. Check first address (from .env)

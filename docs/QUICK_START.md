@@ -83,7 +83,7 @@ When the bot starts successfully, you should see:
    1. 0x7c3db723f1d4d8cb9c550095203b686cb11e5c6b
 
 💼 Your Wallet:
-   0x4fbBe5599c06e846D2742014c9eB04A8a3d1DE8C
+   0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
 
 ✓ MongoDB connected
 ℹ Initializing CLOB client...

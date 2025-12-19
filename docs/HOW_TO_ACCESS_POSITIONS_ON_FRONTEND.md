@@ -2,7 +2,7 @@
 
 ## 🎯 Problem
 
-Your bot trades through address `0x4fbBe5599c06e846D2742014c9eB04A8a3d1DE8C`, but when you go to polymarket.com through the browser, you see a **different address** and cannot manage positions.
+Your bot trades through address `0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266`, but when you go to polymarket.com through the browser, you see a **different address** and cannot manage positions.
 
 ## 🔍 Cause
 
@@ -63,7 +63,7 @@ If you want to keep the bot separate from your main wallet:
 1. Open **https://polymarket.com**
 2. Click **"Connect Wallet"**
 3. Select **MetaMask**
-4. **Make sure** the imported account is selected (`0x4fbBe5599c06e846D2742014c9eB04A8a3d1DE8C`)
+4. **Make sure** the imported account is selected (`0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266`)
 5. Confirm connection
 
 ---
@@ -86,13 +86,13 @@ If you don't want to import the key, you can view positions via direct link:
 **📊 Your profile:**
 
 ```
-https://polymarket.com/profile/0x4fbBe5599c06e846D2742014c9eB04A8a3d1DE8C
+https://polymarket.com/profile/0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
 ```
 
 **🔍 Polygonscan (all transactions):**
 
 ```
-https://polygonscan.com/address/0x4fbBe5599c06e846D2742014c9eB04A8a3d1DE8C
+https://polygonscan.com/address/0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
 ```
 
 ⚠️ **But**: Through URL you can only **view**, not **manage** positions. To manage, you need access to the private key.
@@ -106,7 +106,7 @@ After import, make sure the address matches:
 1. In MetaMask, click on account address (to copy)
 2. Compare with `PROXY_WALLET` from `.env`:
     ```
-    0x4fbBe5599c06e846D2742014c9eB04A8a3d1DE8C
+    0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
     ```
 3. They should **completely match**
 
@@ -168,7 +168,7 @@ Polymarket uses ERC1155 tokens, which MetaMask doesn't always display automatica
 
 ## 📊 Current state of your wallet
 
-**Address**: `0x4fbBe5599c06e846D2742014c9eB04A8a3d1DE8C`
+**Address**: `0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266`
 
 **Positions**: 20 open (after selling 5 large ones at 80%)
 

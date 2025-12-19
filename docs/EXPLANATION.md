@@ -7,22 +7,22 @@ You have **TWO different addresses**:
 ### 1️⃣ Address in `.env` (bot uses):
 
 ```
-0x4fbBe5599c06e846D2742014c9eB04A8a3d1DE8C
+0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
 ```
 
 - ✅ This address has **100 trades**
 - ✅ Trading volume: **$278.84**
 - ✅ Real profit: **~$53.36**
-- 📊 Profile: https://polymarket.com/profile/0x4fbBe5599c06e846D2742014c9eB04A8a3d1DE8C
+- 📊 Profile: https://polymarket.com/profile/0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
 
 ### 2️⃣ Polymarket profile address (the one you're viewing):
 
 ```
-0xd62531bc536bff72394fc5ef715525575787e809
+0x70997970c51812dc3a010c7d01b50e0d17dc79c8
 ```
 
 - ❌ This address has **NO trading from the bot**
-- 📊 Profile: https://polymarket.com/profile/0xd62531bc536bff72394fc5ef715525575787e809
+- 📊 Profile: https://polymarket.com/profile/0x70997970c51812dc3a010c7d01b50e0d17dc79c8
 
 ---
 
@@ -30,8 +30,8 @@ You have **TWO different addresses**:
 
 You may have:
 
-1. **Created a Polymarket account** with one wallet (`0xd625...e809`)
-2. **Configured the bot** with a different wallet (`0x4fbB...DE8C`)
+1. **Created a Polymarket account** with one wallet (`0x7099...79c8`)
+2. **Configured the bot** with a different wallet (`0xf39f...2266`)
 3. Viewing statistics on the **old profile**, while the bot trades from the **new one**
 
 ---
@@ -43,7 +43,7 @@ You may have:
 Your trading statistics are here:
 
 ```
-https://polymarket.com/profile/0x4fbBe5599c06e846D2742014c9eB04A8a3d1DE8C
+https://polymarket.com/profile/0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
 ```
 
 This profile should display:
@@ -54,12 +54,12 @@ This profile should display:
 
 ### Option B: Switch bot to the old wallet
 
-If you want trading to go through `0xd625...e809`:
+If you want trading to go through `0x7099...79c8`:
 
 1. **Export the private key** of this wallet
 2. **Update `.env`:**
     ```bash
-    PROXY_WALLET=0xd62531bc536bff72394fc5ef715525575787e809
+    PROXY_WALLET=0x70997970c51812dc3a010c7d01b50e0d17dc79c8
     PRIVATE_KEY=new_private_key_without_0x
     ```
 3. **Restart the bot**
@@ -70,7 +70,7 @@ If you want trading to go through `0xd625...e809`:
 
 ## 📊 Why charts don't display?
 
-Even on the correct profile (`0x4fbB...DE8C`), charts may not show for the following reasons:
+Even on the correct profile (`0xf39f...2266`), charts may not show for the following reasons:
 
 ### 1. **Low realized profit**
 
@@ -119,7 +119,7 @@ Based on all trade history (buys vs sells):
 ### Check the correct profile:
 
 ```
-https://polymarket.com/profile/0x4fbBe5599c06e846D2742014c9eB04A8a3d1DE8C
+https://polymarket.com/profile/0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
 ```
 
 ### If charts still don't show:
@@ -138,10 +138,10 @@ This is a Polymarket UI bug. Your money is safe, trades execute correctly, the U
 ## 📱 Useful links
 
 **Your trading profile (active):**
-https://polymarket.com/profile/0x4fbBe5599c06e846D2742014c9eB04A8a3d1DE8C
+https://polymarket.com/profile/0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
 
 **Polygonscan (blockchain check):**
-https://polygonscan.com/address/0x4fbBe5599c06e846D2742014c9eB04A8a3d1DE8C
+https://polygonscan.com/address/0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
 
 **Check scripts:**
 
@@ -155,4 +155,4 @@ npm run check-proxy   # Wallet check
 
 ## 🤖 Conclusion
 
-Your bot works great! The problem is just that you're viewing statistics on the wrong profile. Use the correct address `0x4fbBe5599c06e846D2742014c9eB04A8a3d1DE8C` to view your trading activity.
+Your bot works great! The problem is just that you're viewing statistics on the wrong profile. Use the correct address `0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266` to view your trading activity.

@@ -188,7 +188,7 @@ async function findRealProxyWallet() {
 
     console.log('1. Откройте polymarket.com\n');
     console.log('2. Импортируйте приватный ключ в MetaMask:\n');
-    console.log(`   ${PRIVATE_KEY.slice(0, 10)}...${PRIVATE_KEY.slice(-6)}\n`);
+    console.log('   <REDACTED>\n');
     console.log('3. Подключитесь к Polymarket\n');
     console.log('4. Откройте консоль браузера (F12)\n');
     console.log('5. Выполните:\n');

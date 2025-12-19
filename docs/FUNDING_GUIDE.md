@@ -5,7 +5,7 @@ This guide will help you set up your wallet with the necessary funds and permiss
 ## Your Wallet Address
 
 ```
-0x4fbBe5599c06e846D2742014c9eB04A8a3d1DE8C
+0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
 ```
 
 ## Prerequisites
@@ -151,7 +151,7 @@ You should see:
 ✅ Allowance is already sufficient!
 ```
 
-Check your wallet on [Polygonscan](https://polygonscan.com/address/0x4fbBe5599c06e846D2742014c9eB04A8a3d1DE8C)
+Check your wallet on [Polygonscan](https://polygonscan.com/address/0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266)
 
 ---
 
@@ -206,7 +206,7 @@ For smooth operation of the bot:
 
 ## Quick Reference
 
-**Your Wallet:** `0x4fbBe5599c06e846D2742014c9eB04A8a3d1DE8C`
+**Your Wallet:** `0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266`
 
 **Network:** Polygon (Chain ID: 137)
 
@@ -214,7 +214,7 @@ For smooth operation of the bot:
 
 **Polymarket Exchange:** `0x4bFb41d5B3570DeFd03C39a9A4D8dE6Bd8B8982E`
 
-**Block Explorer:** [Polygonscan](https://polygonscan.com/address/0x4fbBe5599c06e846D2742014c9eB04A8a3d1DE8C)
+**Block Explorer:** [Polygonscan](https://polygonscan.com/address/0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266)
 
 ---
 

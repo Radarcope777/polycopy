@@ -13,6 +13,7 @@ node_modules/
 dist/
 build/
 out/
+.next/
 
 # TypeScript files
 *.tsbuildinfo

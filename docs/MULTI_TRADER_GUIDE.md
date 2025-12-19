@@ -53,7 +53,7 @@ USER_ADDRESSES = '
   0xDeF789AnotherSuccessfulTrader012...
 '
 
-PROXY_WALLET = '0x4fbBe5599c06e846D2742014c9eB04A8a3d1DE8C'
+PROXY_WALLET = '0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266'
 PRIVATE_KEY = 'your_private_key_without_0x'
 ```
 
@@ -69,7 +69,7 @@ When starting the bot:
    2. 0xabc123toptraderwith...
    3. 0xdef789anothersuccessful...
 
-💼 Your trading wallet: 0x4fbBe5599c06e846D2742014c9eB04A8a3d1DE8C
+💼 Your trading wallet: 0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```

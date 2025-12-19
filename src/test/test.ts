@@ -6,11 +6,6 @@ const USER_ADDRESSES = ENV.USER_ADDRESSES;
 const PROXY_WALLET = ENV.PROXY_WALLET;
 
 const test = async (clobClient: ClobClient) => {
-    // const markets = await clobClient.getMarket(
-    //     '0x834b371fe993e95cd1aa98a29e77794d5ff6dcaddf71115a6ad522b4b64ec165'
-    // );
-    // console.log(`markets: `);
-    // console.log(markets);
     // const orderbook = await clobClient.getOrderBook(
     //     '104411547841791877252227935410049230769909951522603517050502627610163580155198'
     // );

@@ -24,7 +24,7 @@ The bot features a clean, colorful logging system with masked sensitive informat
    3. 0xd218e474776403a330142299f7796e8ba32eb5c9
 
 💼 Your Wallet:
-   0x4fbB**********************************DE8C
+   0xf39F**********************************2266
 
 ✓ MongoDB connected
 ℹ Initializing CLOB client...
@@ -133,14 +133,14 @@ Your personal wallet address is automatically masked in all logs:
 
 ```
 💼 Your Wallet:
-   0x4fbBe5599c06e846D2742014c9eB04A8a3d1DE8C
+   0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
 ```
 
 **After:**
 
 ```
 💼 Your Wallet:
-   0x4fbB**********************************DE8C
+   0xf39F**********************************2266
 ```
 
 This prevents accidental exposure of your wallet in:
@@ -182,7 +182,7 @@ The **PolyCopy** ASCII logo features a beautiful gradient:
 
 ```
 Target User Wallet addresss is: 0x7c3db723f1d4d8cb9c550095203b686cb11e5c6b
-My Wallet addresss is: 0x4fbBe5599c06e846D2742014c9eB04A8a3d1DE8C
+My Wallet addresss is: 0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
 API Key derived { key: '...', secret: '...', passphrase: '...' }
 ClobClient { ... }
 Trade Monitor is running every 1 seconds
@@ -207,7 +207,7 @@ My balance: $1000 | 0x7c3db... balance: $15000
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 📊 Tracking 3 trader(s)
-💼 Your Wallet: 0x4fbB**********************************DE8C
+💼 Your Wallet: 0xf39F**********************************2266
 ✓ CLOB client ready
 
 ──────────────────────────────────────────────────────────────────────
