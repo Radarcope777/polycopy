@@ -80,51 +80,51 @@ export default function PositionsPage() {
   return (
     <div>
       <div className="flex items-center justify-between mb-8">
-        <h1 className="text-2xl font-bold">Positions</h1>
+        <h1 className="text-2xl font-bold">持仓</h1>
         <button
           onClick={handleRefresh}
           className="flex items-center gap-2 px-4 py-2 bg-[#2a2a2a] rounded-lg hover:bg-[#3a3a3a] transition-colors"
           disabled={refreshing}
         >
           <RefreshCw size={16} className={refreshing ? 'animate-spin' : ''} />
-          Refresh
+          刷新
         </button>
       </div>
 
       {/* Summary Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
         <div className="card">
-          <p className="stat-label">Total Value</p>
+          <p className="stat-label">总价值</p>
           <p className="stat-value mt-1">${data?.totalValue || '0.00'}</p>
         </div>
         <div className="card">
-          <p className="stat-label">Total PnL</p>
+          <p className="stat-label">总盈亏</p>
           <p className={`stat-value mt-1 ${totalPnl >= 0 ? 'text-green-400' : 'text-red-400'}`}>
             {totalPnl >= 0 ? '+' : ''}${data?.totalPnl || '0.00'}
           </p>
         </div>
         <div className="card">
-          <p className="stat-label">Open Positions</p>
+          <p className="stat-label">持仓数量</p>
           <p className="stat-value mt-1">{data?.totalPositions || 0}</p>
         </div>
       </div>
 
       {/* Positions Table */}
       <div className="card">
-        <h2 className="text-lg font-semibold mb-4">All Positions</h2>
+        <h2 className="text-lg font-semibold mb-4">所有持仓</h2>
         {data?.positions && data.positions.length > 0 ? (
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
                 <tr className="text-left text-gray-400 text-sm border-b border-[#2a2a2a]">
-                  <th className="pb-3 px-4">Market</th>
-                  <th className="pb-3 px-4">Outcome</th>
-                  <th className="pb-3 px-4">Size</th>
-                  <th className="pb-3 px-4">Avg Price</th>
-                  <th className="pb-3 px-4">Current</th>
-                  <th className="pb-3 px-4">Value</th>
-                  <th className="pb-3 px-4">PnL</th>
-                  <th className="pb-3 px-4">Status</th>
+                  <th className="pb-3 px-4">市场</th>
+                  <th className="pb-3 px-4">结果</th>
+                  <th className="pb-3 px-4">数量</th>
+                  <th className="pb-3 px-4">均价</th>
+                  <th className="pb-3 px-4">现价</th>
+                  <th className="pb-3 px-4">价值</th>
+                  <th className="pb-3 px-4">盈亏</th>
+                  <th className="pb-3 px-4">状态</th>
                 </tr>
               </thead>
               <tbody>
@@ -135,7 +135,7 @@ export default function PositionsPage() {
                         {position.icon && (
                           <img src={position.icon} alt="" className="w-6 h-6 rounded" />
                         )}
-                        <span className="truncate max-w-[200px]">{position.title || position.slug || 'Unknown'}</span>
+                        <span className="truncate max-w-[200px]">{position.title || position.slug || '未知'}</span>
                       </div>
                     </td>
                     <td className="py-3 px-4">
@@ -152,9 +152,9 @@ export default function PositionsPage() {
                     </td>
                     <td className="py-3 px-4">
                       {position.redeemable ? (
-                        <span className="badge badge-warning">Redeemable</span>
+                        <span className="badge badge-warning">可赎回</span>
                       ) : (
-                        <span className="badge badge-info">Active</span>
+                        <span className="badge badge-info">活跃</span>
                       )}
                     </td>
                   </tr>
@@ -163,7 +163,7 @@ export default function PositionsPage() {
             </table>
           </div>
         ) : (
-          <p className="text-gray-500 text-center py-8">No open positions</p>
+          <p className="text-gray-500 text-center py-8">暂无持仓</p>
         )}
       </div>
     </div>

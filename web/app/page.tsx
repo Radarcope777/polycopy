@@ -53,12 +53,12 @@ function ActivityRow({ activity }: { activity: any }) {
           {activity.icon && (
             <img src={activity.icon} alt="" className="w-6 h-6 rounded" />
           )}
-          <span className="truncate max-w-[200px]">{activity.title || activity.slug || 'Unknown Market'}</span>
+          <span className="truncate max-w-[200px]">{activity.title || activity.slug || '未知市场'}</span>
         </div>
       </td>
       <td className="py-3 px-4">
         <span className={`badge ${isBuy ? 'badge-success' : 'badge-danger'}`}>
-          {activity.side || 'N/A'}
+          {activity.side === 'BUY' ? '买入' : activity.side === 'SELL' ? '卖出' : 'N/A'}
         </span>
       </td>
       <td className="py-3 px-4">{activity.outcome || activity.asset || 'N/A'}</td>
@@ -66,7 +66,7 @@ function ActivityRow({ activity }: { activity: any }) {
       <td className="py-3 px-4">{(activity.price || 0).toFixed(2)}</td>
       <td className="py-3 px-4">
         <span className={`badge ${isBot ? 'badge-info' : 'badge-warning'}`}>
-          {isBot ? 'Bot' : 'Trader'}
+          {isBot ? '机器人' : '交易员'}
         </span>
       </td>
     </tr>
@@ -87,7 +87,7 @@ export default function Dashboard() {
         setStats(data);
         setError(null);
       } catch (err) {
-        setError('Failed to connect to database');
+        setError('无法连接到数据库');
       } finally {
         setLoading(false);
       }
@@ -110,7 +110,7 @@ export default function Dashboard() {
     return (
       <div className="card text-center py-12">
         <p className="text-red-400 mb-4">{error}</p>
-        <p className="text-gray-500">Make sure MongoDB is running and the bot is started.</p>
+        <p className="text-gray-500">请确保 MongoDB 正在运行且机器人已启动。</p>
       </div>
     );
   }
@@ -120,34 +120,34 @@ export default function Dashboard() {
   return (
     <div>
       <div className="flex items-center justify-between mb-8">
-        <h1 className="text-2xl font-bold">Dashboard</h1>
+        <h1 className="text-2xl font-bold">仪表盘</h1>
         <div className="flex items-center gap-2 text-gray-400 text-sm">
           <Clock size={14} />
-          <span>Auto-refreshing every 5s</span>
+          <span>每5秒自动刷新</span>
         </div>
       </div>
 
       {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         <StatCard
-          title="Total PnL"
+          title="总盈亏"
           value={`$${stats?.totalPnl || '0.00'}`}
           icon={Wallet}
           trend={pnl >= 0 ? 'up' : 'down'}
-          trendValue={pnl >= 0 ? 'Profit' : 'Loss'}
+          trendValue={pnl >= 0 ? '盈利' : '亏损'}
         />
         <StatCard
-          title="Tracked Traders"
+          title="跟踪交易员"
           value={stats?.totalTraders || 0}
           icon={Users}
         />
         <StatCard
-          title="Total Trades"
+          title="总交易数"
           value={stats?.totalTrades || 0}
           icon={Activity}
         />
         <StatCard
-          title="Bot Executed"
+          title="机器人执行"
           value={stats?.botExecutedTrades || 0}
           icon={TrendingUp}
         />
@@ -155,19 +155,19 @@ export default function Dashboard() {
 
       {/* Recent Activities */}
       <div className="card">
-        <h2 className="text-lg font-semibold mb-4">Recent Activities (24h)</h2>
+        <h2 className="text-lg font-semibold mb-4">最近交易记录 (24小时)</h2>
         {stats?.recentActivities && stats.recentActivities.length > 0 ? (
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
                 <tr className="text-left text-gray-400 text-sm border-b border-[#2a2a2a]">
-                  <th className="pb-3 px-4">Time</th>
-                  <th className="pb-3 px-4">Market</th>
-                  <th className="pb-3 px-4">Side</th>
-                  <th className="pb-3 px-4">Outcome</th>
-                  <th className="pb-3 px-4">Size</th>
-                  <th className="pb-3 px-4">Price</th>
-                  <th className="pb-3 px-4">Source</th>
+                  <th className="pb-3 px-4">时间</th>
+                  <th className="pb-3 px-4">市场</th>
+                  <th className="pb-3 px-4">方向</th>
+                  <th className="pb-3 px-4">结果</th>
+                  <th className="pb-3 px-4">金额</th>
+                  <th className="pb-3 px-4">价格</th>
+                  <th className="pb-3 px-4">来源</th>
                 </tr>
               </thead>
               <tbody>
@@ -178,7 +178,7 @@ export default function Dashboard() {
             </table>
           </div>
         ) : (
-          <p className="text-gray-500 text-center py-8">No recent activities in the last 24 hours</p>
+          <p className="text-gray-500 text-center py-8">最近24小时内没有交易记录</p>
         )}
       </div>
     </div>

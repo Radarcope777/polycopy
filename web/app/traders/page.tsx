@@ -53,24 +53,24 @@ export default function TradersPage() {
   return (
     <div>
       <div className="flex items-center justify-between mb-8">
-        <h1 className="text-2xl font-bold">Tracked Traders</h1>
+        <h1 className="text-2xl font-bold">跟踪交易员</h1>
         <button
           onClick={fetchTraders}
           className="flex items-center gap-2 px-4 py-2 bg-[#2a2a2a] rounded-lg hover:bg-[#3a3a3a] transition-colors"
         >
           <RefreshCw size={16} />
-          Refresh
+          刷新
         </button>
       </div>
 
       {/* Summary */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
         <div className="card">
-          <p className="stat-label">Total Traders</p>
+          <p className="stat-label">交易员总数</p>
           <p className="stat-value mt-1">{data?.total || 0}</p>
         </div>
         <div className="card">
-          <p className="stat-label">Total Bot Trades</p>
+          <p className="stat-label">机器人交易总数</p>
           <p className="stat-value mt-1">
             {data?.traders.reduce((sum, t) => sum + t.botTrades, 0) || 0}
           </p>
@@ -115,37 +115,37 @@ export default function TradersPage() {
 
               <div className="grid grid-cols-2 gap-4 mb-4">
                 <div>
-                  <p className="text-gray-400 text-xs">Total Trades</p>
+                  <p className="text-gray-400 text-xs">总交易数</p>
                   <p className="font-semibold">{trader.totalTrades}</p>
                 </div>
                 <div>
-                  <p className="text-gray-400 text-xs">Bot Trades</p>
+                  <p className="text-gray-400 text-xs">机器人交易</p>
                   <p className="font-semibold text-blue-400">{trader.botTrades}</p>
                 </div>
                 <div>
-                  <p className="text-gray-400 text-xs">Open Positions</p>
+                  <p className="text-gray-400 text-xs">持仓数量</p>
                   <p className="font-semibold">{trader.openPositions}</p>
                 </div>
                 <div>
-                  <p className="text-gray-400 text-xs">Position Value</p>
+                  <p className="text-gray-400 text-xs">持仓价值</p>
                   <p className="font-semibold">${trader.totalValue}</p>
                 </div>
               </div>
 
               <div className="flex items-center justify-between pt-4 border-t border-[#2a2a2a]">
                 <div>
-                  <p className="text-gray-400 text-xs">PnL</p>
+                  <p className="text-gray-400 text-xs">盈亏</p>
                   <p className={`font-semibold flex items-center gap-1 ${pnl >= 0 ? 'text-green-400' : 'text-red-400'}`}>
                     {pnl >= 0 ? <TrendingUp size={14} /> : <TrendingDown size={14} />}
                     {pnl >= 0 ? '+' : ''}${trader.totalPnl}
                   </p>
                 </div>
                 <div className="text-right">
-                  <p className="text-gray-400 text-xs">Last Activity</p>
+                  <p className="text-gray-400 text-xs">最后活跃</p>
                   <p className="text-sm">
                     {trader.lastActivity
                       ? formatDistanceToNow(new Date(trader.lastActivity * 1000), { addSuffix: true })
-                      : 'Never'}
+                      : '从未'}
                   </p>
                 </div>
               </div>
@@ -156,8 +156,8 @@ export default function TradersPage() {
 
       {(!data?.traders || data.traders.length === 0) && (
         <div className="card text-center py-12">
-          <p className="text-gray-500">No traders are being tracked yet.</p>
-          <p className="text-gray-600 mt-2">Start the bot to begin tracking traders.</p>
+          <p className="text-gray-500">暂无跟踪的交易员。</p>
+          <p className="text-gray-600 mt-2">启动机器人开始跟踪交易员。</p>
         </div>
       )}
     </div>

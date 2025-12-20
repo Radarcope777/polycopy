@@ -70,10 +70,16 @@ export default function ActivitiesPage() {
 
   const totalPages = Math.ceil((data?.total || 0) / limit);
 
+  const filterLabels: Record<string, string> = {
+    all: '全部',
+    bot: '机器人',
+    trader: '交易员'
+  };
+
   return (
     <div>
       <div className="flex items-center justify-between mb-8">
-        <h1 className="text-2xl font-bold">Activities</h1>
+        <h1 className="text-2xl font-bold">交易记录</h1>
         <div className="flex items-center gap-4">
           {/* Filter Buttons */}
           <div className="flex items-center gap-2 bg-[#1a1a1a] rounded-lg p-1">
@@ -85,7 +91,7 @@ export default function ActivitiesPage() {
                   filter === f ? 'bg-blue-600 text-white' : 'hover:bg-[#2a2a2a]'
                 }`}
               >
-                {f.charAt(0).toUpperCase() + f.slice(1)}
+                {filterLabels[f]}
               </button>
             ))}
           </div>
@@ -94,7 +100,7 @@ export default function ActivitiesPage() {
             className="flex items-center gap-2 px-4 py-2 bg-[#2a2a2a] rounded-lg hover:bg-[#3a3a3a] transition-colors"
           >
             <RefreshCw size={16} />
-            Refresh
+            刷新
           </button>
         </div>
       </div>
@@ -102,15 +108,15 @@ export default function ActivitiesPage() {
       {/* Stats */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
         <div className="card">
-          <p className="stat-label">Total Activities</p>
+          <p className="stat-label">总交易数</p>
           <p className="stat-value mt-1">{data?.total || 0}</p>
         </div>
         <div className="card">
-          <p className="stat-label">Bot Trades</p>
+          <p className="stat-label">机器人交易</p>
           <p className="stat-value mt-1">{data?.activities.filter(a => a.bot).length || 0}</p>
         </div>
         <div className="card">
-          <p className="stat-label">Trader Trades</p>
+          <p className="stat-label">交易员交易</p>
           <p className="stat-value mt-1">{data?.activities.filter(a => !a.bot).length || 0}</p>
         </div>
       </div>
@@ -118,9 +124,9 @@ export default function ActivitiesPage() {
       {/* Activities Table */}
       <div className="card">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-lg font-semibold">Activity Log</h2>
+          <h2 className="text-lg font-semibold">交易日志</h2>
           <span className="text-gray-400 text-sm">
-            Showing {filteredActivities.length} of {data?.total || 0}
+            显示 {filteredActivities.length} / {data?.total || 0}
           </span>
         </div>
 
@@ -129,15 +135,15 @@ export default function ActivitiesPage() {
             <table className="w-full">
               <thead>
                 <tr className="text-left text-gray-400 text-sm border-b border-[#2a2a2a]">
-                  <th className="pb-3 px-4">Time</th>
-                  <th className="pb-3 px-4">Market</th>
-                  <th className="pb-3 px-4">Side</th>
-                  <th className="pb-3 px-4">Outcome</th>
-                  <th className="pb-3 px-4">Size</th>
+                  <th className="pb-3 px-4">时间</th>
+                  <th className="pb-3 px-4">市场</th>
+                  <th className="pb-3 px-4">方向</th>
+                  <th className="pb-3 px-4">结果</th>
+                  <th className="pb-3 px-4">数量</th>
                   <th className="pb-3 px-4">USDC</th>
-                  <th className="pb-3 px-4">Price</th>
-                  <th className="pb-3 px-4">Source</th>
-                  <th className="pb-3 px-4">Tx</th>
+                  <th className="pb-3 px-4">价格</th>
+                  <th className="pb-3 px-4">来源</th>
+                  <th className="pb-3 px-4">交易</th>
                 </tr>
               </thead>
               <tbody>
@@ -153,12 +159,12 @@ export default function ActivitiesPage() {
                         {activity.icon && (
                           <img src={activity.icon} alt="" className="w-6 h-6 rounded" />
                         )}
-                        <span className="truncate max-w-[180px]">{activity.title || activity.slug || 'Unknown'}</span>
+                        <span className="truncate max-w-[180px]">{activity.title || activity.slug || '未知'}</span>
                       </div>
                     </td>
                     <td className="py-3 px-4">
                       <span className={`badge ${activity.side === 'BUY' ? 'badge-success' : 'badge-danger'}`}>
-                        {activity.side || 'N/A'}
+                        {activity.side === 'BUY' ? '买入' : activity.side === 'SELL' ? '卖出' : 'N/A'}
                       </span>
                     </td>
                     <td className="py-3 px-4">{activity.outcome || activity.asset || 'N/A'}</td>
@@ -167,7 +173,7 @@ export default function ActivitiesPage() {
                     <td className="py-3 px-4">{((activity.price || 0) * 100).toFixed(1)}c</td>
                     <td className="py-3 px-4">
                       <span className={`badge ${activity.bot ? 'badge-info' : 'badge-warning'}`}>
-                        {activity.bot ? 'Bot' : 'Trader'}
+                        {activity.bot ? '机器人' : '交易员'}
                       </span>
                     </td>
                     <td className="py-3 px-4">
@@ -178,7 +184,7 @@ export default function ActivitiesPage() {
                           rel="noopener noreferrer"
                           className="text-blue-400 hover:underline"
                         >
-                          View
+                          查看
                         </a>
                       ) : (
                         '--'
@@ -190,7 +196,7 @@ export default function ActivitiesPage() {
             </table>
           </div>
         ) : (
-          <p className="text-gray-500 text-center py-8">No activities found</p>
+          <p className="text-gray-500 text-center py-8">暂无交易记录</p>
         )}
 
         {/* Pagination */}
@@ -201,17 +207,17 @@ export default function ActivitiesPage() {
               disabled={page === 0}
               className="px-4 py-2 bg-[#2a2a2a] rounded-lg disabled:opacity-50 hover:bg-[#3a3a3a] transition-colors"
             >
-              Previous
+              上一页
             </button>
             <span className="px-4 text-gray-400">
-              Page {page + 1} of {totalPages}
+              第 {page + 1} 页 / 共 {totalPages} 页
             </span>
             <button
               onClick={() => setPage(p => Math.min(totalPages - 1, p + 1))}
               disabled={page >= totalPages - 1}
               className="px-4 py-2 bg-[#2a2a2a] rounded-lg disabled:opacity-50 hover:bg-[#3a3a3a] transition-colors"
             >
-              Next
+              下一页
             </button>
           </div>
         )}
